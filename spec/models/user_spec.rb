@@ -9,7 +9,14 @@ describe User do
 
   subject { @user }
 
-  it { should respond_to(:authenticate) }
+  it { should respond_to(:name) }
+  it { should respond_to(:email) }
+  it { should respond_to(:password_digest) }
+  it { should respond_to(:password) }
+  it { should respond_to(:password_confirmation) }
+
+  it { should be_valid }
+
 
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
